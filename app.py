@@ -15,6 +15,9 @@ from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import os
+@app.route("/")
+def home():
+    return "Food Delivery Backend is Running 🚀"
 
 # ─── APP SETUP ──────────────────────────────────────────────
 app = Flask(__name__)
@@ -198,7 +201,3 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-
-    @app.route("/")
-def home():
-    return "Food Delivery Backend is Running 🚀"
