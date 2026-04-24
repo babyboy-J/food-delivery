@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saveur – Fine Food & Recipes</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-logo">Saveur</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Dynamically populated by auth.js -->
+      <div id="navAuthArea">
+        <button class="nav-cta" onclick="openAuth('login')">Sign In</button>
+      </div>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="hero-tag">Fresh · Seasonal · Handcrafted</p>
+        <h1>Food Made with <em>Passion</em></h1>
+        <p class="hero-sub">Discover recipes and dishes inspired by the world's finest cuisines — brought to your table with love.</p>
+        <div class="hero-buttons">
+          <a href="#menu" class="btn-primary">Explore Menu</a>
+          <a href="#recipes" class="btn-secondary">View Recipes</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-img-wrap">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Fine food dish" />
+        </div>
+        <div class="hero-badge">⭐ Rated #1 Food Blog 2025</div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Recipes</span></div>
+      <div class="stat"><span class="stat-num">50k</span><span class="stat-label">Happy Readers</span></div>
+      <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Cuisines</span></div>
+      <div class="stat"><span class="stat-num">15</span><span class="stat-label">Awards</span></div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu" id="menu">
+      <div class="section-header">
+        <p class="section-tag">Our Specialties</p>
+        <h2>Today's Menu</h2>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="starter">Starters</button>
+        <button class="filter-btn" data-filter="main">Mains</button>
+        <button class="filter-btn" data-filter="dessert">Desserts</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+
+        <div class="menu-card" data-category="starter">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=400&q=80" alt="Bruschetta" />
+            <span class="card-tag">Starter</span>
+          </div>
+          <div class="card-body">
+            <h3>Truffle Bruschetta</h3>
+            <p>Toasted sourdough topped with whipped ricotta, black truffle, and fresh herbs.</p>
+            <div class="card-footer">
+              <span class="price">€12</span>
+              <button class="add-btn" onclick="addToCart('Truffle Bruschetta', 12)">+ Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="main">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80" alt="Pasta" />
+            <span class="card-tag">Main</span>
+          </div>
+          <div class="card-body">
+            <h3>Saffron Tagliatelle</h3>
+            <p>Hand-rolled pasta with saffron cream, wild mushrooms, and aged Parmesan.</p>
+            <div class="card-footer">
+              <span class="price">€24</span>
+              <button class="add-btn" onclick="addToCart('Saffron Tagliatelle', 24)">+ Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="main">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&q=80" alt="Salmon" />
+            <span class="card-tag">Main</span>
+          </div>
+          <div class="card-body">
+            <h3>Pan-Seared Salmon</h3>
+            <p>Atlantic salmon with lemon beurre blanc, capers, and seasonal vegetables.</p>
+            <div class="card-footer">
+              <span class="price">€28</span>
+              <button class="add-btn" onclick="addToCart('Pan-Seared Salmon', 28)">+ Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="starter">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=400&q=80" alt="Soup" />
+            <span class="card-tag">Starter</span>
+          </div>
+          <div class="card-body">
+            <h3>French Onion Soup</h3>
+            <p>Slow-caramelised onion broth topped with Gruyère croutons.</p>
+            <div class="card-footer">
+              <span class="price">€10</span>
+              <button class="add-btn" onclick="addToCart('French Onion Soup', 10)">+ Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="dessert">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&q=80" alt="Dessert" />
+            <span class="card-tag">Dessert</span>
+          </div>
+          <div class="card-body">
+            <h3>Crème Brûlée</h3>
+            <p>Classic vanilla custard with a perfectly torched caramel crust.</p>
+            <div class="card-footer">
+              <span class="price">€9</span>
+              <button class="add-btn" onclick="addToCart('Crème Brûlée', 9)">+ Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="dessert">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&q=80" alt="Chocolate" />
+            <span class="card-tag">Dessert</span>
+          </div>
+          <div class="card-body">
+            <h3>Dark Chocolate Fondant</h3>
+            <p>Warm dark chocolate cake with a molten centre and vanilla ice cream.</p>
+            <div class="card-footer">
+              <span class="price">€11</span>
+              <button class="add-btn" onclick="addToCart('Dark Chocolate Fondant', 11)">+ Add</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h3>Your Order</h3>
+        <button onclick="closeCart()" class="cart-close">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <p class="cart-empty">Your cart is empty.</p>
+      </div>
+      <div class="cart-total" id="cartTotal"></div>
+      <button class="btn-primary cart-checkout" id="checkoutBtn" style="display:none;" onclick="checkout()">Checkout →</button>
+    </div>
+
+    <!-- CART BUTTON -->
+    <button class="cart-fab" id="cartFab" onclick="openCart()">
+      🛒 <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <!-- RECIPES -->
+    <section class="recipes" id="recipes">
+      <div class="section-header">
+        <p class="section-tag">From Our Kitchen</p>
+        <h2>Featured Recipes</h2>
+      </div>
+      <div class="recipes-grid">
+
+        <div class="recipe-card">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&q=80" alt="Recipe 1" />
+          <div class="recipe-info">
+            <span class="recipe-time">⏱ 30 min</span>
+            <h3>Classic Beef Burger</h3>
+            <p>Juicy homemade beef patty with secret sauce and brioche bun.</p>
+            <a href="#" class="recipe-link">View Recipe →</a>
+          </div>
+        </div>
+
+        <div class="recipe-card recipe-card--large">
+          <img src="https://images.unsplash.com/photo-1516100882582-96c3a05fe590?w=600&q=80" alt="Recipe 2" />
+          <div class="recipe-info">
+            <span class="recipe-time">⏱ 45 min</span>
+            <h3>Margherita Pizza</h3>
+            <p>Thin crust, San Marzano tomatoes, fresh mozzarella, and basil.</p>
+            <a href="#" class="recipe-link">View Recipe →</a>
+          </div>
+        </div>
+
+        <div class="recipe-card">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&q=80" alt="Recipe 3" />
+          <div class="recipe-info">
+            <span class="recipe-time">⏱ 20 min</span>
+            <h3>Summer Salad Bowl</h3>
+            <p>Vibrant greens, roasted chickpeas, feta, and lemon dressing.</p>
+            <a href="#" class="recipe-link">View Recipe →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <h2>Get Weekly Recipes</h2>
+      <p>Join 50,000+ food lovers and receive fresh recipes every week.</p>
+      <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+        <input type="email" id="emailInput" placeholder="your@email.com" required />
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+      <p class="newsletter-msg" id="newsletterMsg"></p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Saveur</h3>
+          <p>Bringing the world's finest flavours to your kitchen and table.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#recipes">Recipes</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>📍 12 Rue de la Paix, Paris</p>
+          <p>📞 +33 1 23 45 67 89</p>
+          <p>✉️ hello@saveur.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Saveur. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- AUTH MODAL -->
+    <div class="auth-overlay" id="authOverlay">
+      <div class="auth-modal" id="authModal">
+        <button class="auth-close" onclick="closeAuth()">✕</button>
+
+        <div class="auth-logo">Saveur</div>
+        <p class="auth-subtitle">Sign in to save your orders</p>
+
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login"    onclick="switchTab('login')">Sign In</button>
+          <button class="auth-tab"        data-tab="register" onclick="switchTab('register')">Create Account</button>
+        </div>
+
+        <!-- Login Panel -->
+        <div class="auth-panel active" id="panel-login">
+          <form class="auth-form" id="loginForm">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" placeholder="••••••••" required />
+            </div>
+            <button type="submit" class="btn-primary auth-submit">Sign In →</button>
+          </form>
+          <p class="auth-msg" id="authMsgLogin"></p>
+        </div>
+
+        <!-- Register Panel -->
+        <div class="auth-panel" id="panel-register">
+          <form class="auth-form" id="registerForm">
+            <div class="form-group">
+              <label for="regName">Full Name</label>
+              <input type="text" id="regName" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="regEmail">Email</label>
+              <input type="email" id="regEmail" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="regPassword">Password</label>
+              <input type="password" id="regPassword" placeholder="Min. 6 characters" required />
+            </div>
+            <button type="submit" class="btn-primary auth-submit">Create Account →</button>
+          </form>
+          <p class="auth-msg" id="authMsgReg"></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>
