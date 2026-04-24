@@ -316,26 +316,5 @@
 
     <script src="script.js"></script>
     <script src="auth.js"></script>
-    <script>
-async function login() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  const res = await fetch("https://food-delivery-2x6y.onrender.com/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      email: email,
-      password: password
-    })
-  });
-
-  const data = await res.json();
-
-  document.getElementById("result").innerText = data.message;
-}
-</script>
   </body>
 </html>
