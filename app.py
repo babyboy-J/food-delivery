@@ -15,11 +15,6 @@ from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import os
-
-@app.route("/") # type: ignore
-def home():
-    return "Food Delivery Backend is Running 🚀"
-
 # ─── APP SETUP ──────────────────────────────────────────────
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'saveur-secret-key-change-in-production'
@@ -175,6 +170,10 @@ def get_orders():
     orders = Order.query.filter_by(user_id=current_user.id)\
                         .order_by(Order.created_at.desc()).all()
     return success([o.to_dict() for o in orders])
+
+@app.route("/")
+def home():
+    return "Food Delivery Backend is Running 🚀"
 
 
 # ─── MENU ROUTE (static data — swap for DB later) ────────────
