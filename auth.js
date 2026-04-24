@@ -1,9 +1,9 @@
 /* =====================
    auth.js — Connects frontend to Flask backend
-   API base: http://127.0.0.1:5000
+   fetch("https://food-delivery-2x6y.onrender.com/login", )
    ===================== */
 
-fetch("https://food-delivery-2x6y.onrender.com/login", )
+const API = "https://food-delivery-2x6y.onrender.com";
 
 // ─── STATE ──────────────────────────────────────────────────
 let currentUser = null;
