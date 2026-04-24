@@ -198,4 +198,4 @@ if __name__ == '__main__':
         db.create_all()
         print('\n✅  Database ready.')
         print('🚀  Saveur API running at http://127.0.0.1:5500\n')
-    app.run(debug=True, port=5500)
+    app.run(host="0.0.0.0", port=port)
