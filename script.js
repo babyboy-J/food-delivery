@@ -248,3 +248,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ─── INIT ───────────────────────────────────────────────────────────────────
 updateCart();
+
+fetch("https://food-delivery-2x6y.onrender.com/login", )
