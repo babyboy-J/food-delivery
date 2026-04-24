@@ -77,6 +77,10 @@ def error(message='Error', status=400):
 
 # ─── AUTH ROUTES ────────────────────────────────────────────
 
+@app.route("/login", methods=["POST"])
+def login():
+    return {"message": "working"}
+
 @app.route('/api/register', methods=['POST'])
 def register():
     """Register a new user."""
