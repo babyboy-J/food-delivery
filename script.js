@@ -60,6 +60,13 @@ const cartCountEl  = document.getElementById('cartCount');
 const cartFab      = document.getElementById('cartFab');
 const checkoutBtn  = document.getElementById('checkoutBtn');
 
+let cart = [];
+
+function addToCart(item) {
+  cart.push(item);
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 function openCart() {
   cartSidebar.classList.add('open');
   cartOverlay.classList.add('open');

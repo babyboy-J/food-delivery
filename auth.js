@@ -72,6 +72,11 @@ async function apiGet(endpoint) {
   });
   return res.json();
 }
+fetch("https://food-delivery-2x6y.onrender.com/foods")
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+  });
 
 // ─── REGISTER ────────────────────────────────────────────────
 async function handleRegister(e) {
@@ -115,6 +120,17 @@ async function handleLogin(e) {
     } else {
       showMsg(authMsgLogin, `⚠️ ${data.message}`);
     }
+    function openLogin() {
+  window.location.href = "login.html";
+}
+fetch("https://food-delivery-2x6y.onrender.com/login", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    email,
+    password
+  })
+})
   } catch {
     showMsg(authMsgLogin, '❌ Could not connect to server. Is Flask running?');
   }
