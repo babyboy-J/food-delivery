@@ -15,7 +15,8 @@ from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import os
-@app.route("/")
+
+@app.route("/") # type: ignore
 def home():
     return "Food Delivery Backend is Running 🚀"
 
