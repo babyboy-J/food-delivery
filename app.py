@@ -12,7 +12,7 @@ from flask_login import (
     login_required, current_user
 )
 from flask_cors import CORS
-CORS(app)
+CORS(app) # type: ignore
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import os
