@@ -193,9 +193,8 @@ def get_menu():
 
 
 # ─── RUN ────────────────────────────────────────────────────
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-        print('\n✅  Database ready.')
-        print('🚀  Saveur API running at http://127.0.0.1:5500\n')
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
